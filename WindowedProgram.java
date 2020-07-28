@@ -12,21 +12,16 @@ public class WindowedProgram extends Applet{
 	int X = 20;
 	int Y = 20;
 	public void init(){
-		addKeyListener(new MyKeyAdapter(this));
+		addKeyListener(new MyKeyAdapter());
 	}
 	public void paint(Graphics g){
 		g.drawString(msg,X,Y);
 	}
-}
-
-class MyKeyAdapter extends KeyAdapter{
-	WindowedProgram  program;
-	public MyKeyAdapter(WindowedProgram program){
-		this.program = program;
-	}
+	class MyKeyAdapter extends KeyAdapter{
 	public void keyTyped(KeyEvent ke){
-		program.msg = program.msg + ke.getKeyChar();
-		program.repaint();
+		msg = msg + ke.getKeyChar();
+		repaint();
 	}
+}
 
 }
